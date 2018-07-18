@@ -402,14 +402,10 @@
 												<!-- Bootstrap Select with Search Input -->
 												<!--===================================================-->
 												<select class="selectpicker" data-live-search="true" data-width="100%">
-													<option>Family</option>
-													<option>Friend</option>
-													<option>Partner</option>
-													<option>Sport</option>
-													<option>Movie</option>
-													<option>Documents</option>
-													<option>Music</option>
-													<option>Video</option>
+													<option>请选择（默认为空）</option>
+													{% for t in typeBook %}
+														<option>{{ t.type_book }}</option>
+													{% endfor %}
 												</select>
 												<!--===================================================-->
 											</div>
@@ -460,27 +456,35 @@
 					                <hr>
 					                <div class="pull-right">
 					                    <ul class="pagination text-nowrap mar-no">
-					                        <li class="page-pre disabled">
-					                            <a href="#">&lt;</a>
-					                        </li>
-					                        <li class="page-number active">
-					                            <span>1</span>
-					                        </li>
-					                        <li class="page-number">
-					                            <a href="#">2</a>
-					                        </li>
-					                        <li class="page-number">
-					                            <a href="#">3</a>
-					                        </li>
-					                        <li>
-					                            <span>...</span>
-					                        </li>
-					                        <li class="page-number">
-					                            <a href="#">9</a>
-					                        </li>
-					                        <li class="page-next">
-					                            <a href="#">&gt;</a>
-					                        </li>
+                                            {% if book_obj.has_previous == True %}
+					                           <li class="page-pre">
+					                                <a href="?pageNum={{ book_obj.previous_page_number }}">上一页</a>
+					                           </li>
+                                            {% else %}
+                                                <li class="page-pre">
+                                                    <span>上一页</span>
+                                                </li>
+                                            {% endif %}
+											{% for page in book_obj.paginator.page_range %}
+												{% if page == book_obj.number %}
+													<li class="page-number active">
+														<span>{{page}}</span>
+													</li>
+												{% else %}
+													<li class="page-number">
+														<a href="?pageNum={{page}}">{{page}}</a>
+													</li>
+												{% endif %}
+											{% endfor %}
+											{% if book_obj.has_next == True %}
+												<li class="page-next">
+													<a href="?pageNum={{ book_obj.next_page_number }}">下一页</a>
+												</li>
+											{% else %}
+												<li class="page-next">
+													<span>下一页</span>
+												</li>
+											{% endif %}
 					                    </ul>
 					                </div>
 					            </div>
