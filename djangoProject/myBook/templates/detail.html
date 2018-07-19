@@ -1,0 +1,99 @@
+{% extends 'base.html '%}
+{% load staticfiles %}
+{% block javascript %}
+    <!--Form validation [ SAMPLE ]-->
+    <script src="/static/js/demo/form-validation.js"></script>
+{% endblock javascript %}
+
+{% block content-container %}
+ <!--Page Title-->
+                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                <div id="page-title">
+                    <h1 class="page-header text-overflow">Form Validation</h1>
+                </div>
+
+                <!--Page content-->
+                <!--===================================================-->
+                <div id="page-content">
+                    
+					<div class="row">
+					    <div class="col-lg-12">
+					        <div class="panel">
+					          <!--  <form id="demo-bvd-notempty" action="forms-validation.html" class="form-horizontal">-->
+					                <div class="panel-body">
+					                    <p class="bord-btm pad-ver text-main text-bold">详细信息</p>
+					
+					                    <!--NOT EMPTY VALIDATOR-->
+					                    <!--===================================================-->
+					                    <fieldset>
+					                        <div class="form-group">
+					                            <label class="col-lg-1 control-label">书名</label>
+					                            <div class="col-lg-3">
+					                                <input type="text" class="form-control" disabled placeholder="Username" value='{{ info_obj.name }}' />
+					                            </div>
+
+					                        </div>
+					                    </fieldset>
+										<hr>
+										<fieldset>
+					                        <div class="form-group">
+					                            <label class="col-lg-1 control-label">页数</label>
+
+												<div class="col-lg-3">
+					                                <input class="form-control" disabled placeholder="页数" value='{{ info_obj.info.pages }}' />
+					                            </div>
+					                        </div>
+					                    </fieldset>
+										<hr>
+										<fieldset>
+					                        <div class="form-group">
+					                            <label class="col-lg-1 control-label">字数</label>
+
+												<div class="col-lg-3">
+					                                <input class="form-control" disabled placeholder="字数" value='{{ info_obj.info.pages }}' />
+					                            </div>
+					                        </div>
+					                    </fieldset>
+										<hr>
+										<fieldset>
+					                        <div class="form-group">
+					                            <label class="col-lg-1 control-label">内容简介</label>
+												<div class="col-lg-3">
+														<p>{{ info_obj.info.contentinfo }}</p>
+					                            </div>
+					                        </div>
+					                    </fieldset>
+										<hr>
+										<fieldset>
+					                        <div class="form-group">
+					                            <label class="col-lg-1 control-label">封面</label>
+
+												<div class="col-lg-3">
+					                                <img src='{% static 'media'%}/{{info_obj.info.logo }}' alt='暂无图片' />
+					                            </div>
+					                        </div>
+					                    </fieldset>
+										<hr>
+										<fieldset>
+					                        <div class="form-group">
+					                            <label class="col-lg-1 control-label">目录</label>
+
+												<div class="col-lg-3">
+					                                <textarea class="form-control" disabled placeholder="目录"></textarea>
+					                            </div>
+					                        </div>
+					                    </fieldset>
+					                </div>
+
+					           <!-- </form> -->
+					        </div>
+					    </div>
+					</div>
+                </div>
+                <!--===================================================-->
+                <!--End page content-->
+            <!--===================================================-->
+            <!--END CONTENT CONTAINER-->
+{% endblock content-container%}
+{% block footer %}
+{% endblock footer %}
