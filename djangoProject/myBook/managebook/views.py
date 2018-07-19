@@ -19,6 +19,7 @@ class bookView(ListView):
 		
 		pageNum = self.request.GET.get('pageNum',1)
 		print('########### ',pageNum)
+<<<<<<< HEAD
 		self.type = self.request.GET.get('type','')
 		self.status = self.request.GET.get('status','')
 		self.search = self.request.GET.get('search','')
@@ -43,6 +44,16 @@ class bookView(ListView):
 		currentPage = pager.page(pageNum)
 		print(currentPage)
 
+=======
+		queryset = super(bookView, self).get_queryset()
+
+		allBook = self.model.objects.all()
+
+		pager = Paginator(allBook, 1)
+
+		currentPage = pager.page(pageNum)
+		print(currentPage)
+>>>>>>> 810981c590ed84c2c9a0591981473b068c08a879
 		return currentPage
 
 	def get_context_data(self, **kwargs):

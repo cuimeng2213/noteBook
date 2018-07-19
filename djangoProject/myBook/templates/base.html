@@ -402,10 +402,17 @@
 											<div class="col-sm-4 table-toolbar-left">
 												<!-- Bootstrap Select with Search Input -->
 												<!--===================================================-->
+<<<<<<< HEAD
 												<select class="selectpicker" data-live-search="true" data-width="100%" name='type'>
 													<option value=''>请选择书的类别（默认为空）</option>
 													{% for t in typeBook %}
 														<option value='{{t.id}}'>{{ t.type_book }}</option>
+=======
+												<select class="selectpicker" data-live-search="true" data-width="100%">
+													<option>请选择（默认为空）</option>
+													{% for t in typeBook %}
+														<option>{{ t.type_book }}</option>
+>>>>>>> 810981c590ed84c2c9a0591981473b068c08a879
 													{% endfor %}
 												</select>
 												<!--===================================================-->
