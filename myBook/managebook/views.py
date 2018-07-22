@@ -3,6 +3,7 @@ from django.views.generic import ListView
 from django.core.paginator import Paginator
 from django.db.models import Q
 from .models import *
+from .form import BookForm
 import time
 
 # Create your views here.
@@ -33,10 +34,10 @@ class bookView(ListView):
 
 		for p in self.paths:
 			#进入图书管理页面
-			if p == 'book':
-				return self.bookManage()
+			# if p == 'book':
+			# 	return self.bookManage()
 			#进入图书详细信息页面
-			elif p == 'detail':
+			if p == 'detail':
 				return self.detailView()
 
 		#搜索实现
@@ -81,12 +82,12 @@ class bookView(ListView):
 		print('##########context: ',context)
 		return context
 
-	def bookManage(self):
-		self.template_name = 'book.html'
-		self.model = Book
-		self.context_object_name = 'book_obj'
-		books = self.model.objects.all()
-		return books
+	# def bookManage(self):
+	# 	self.template_name = 'book.html'
+	# 	self.model = Book
+	# 	self.context_object_name = 'book_obj'
+	# 	books = self.model.objects.all()
+	# 	return books
 
 	def detailView(self):
 		self.bookId = self.request.GET.get('bookId',0)
@@ -102,3 +103,16 @@ class bookView(ListView):
 			print('DDDDDDDDDDDDDDDDDDDDDDD: ',e)
 			info = {}
 		return info
+class BookManage(ListView):
+    template_name = 'book.html'
+    model = Book
+    context_object_name = 'book_obj'
+    def get_queryset(self):
+        queryset = super(BookManage, self).get_queryset()
+        return  queryset
+
+    def get_context_data(self, **kwargs):
+        content = super(BookManage, self).get_context_data(**kwargs)
+        bookForm = BookForm()
+        content['bookForm'] = bookForm
+        return  content
