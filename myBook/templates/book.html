@@ -1,184 +1,195 @@
 {% extends 'base.html ' %}
 {% load staticfiles %}
 {% block javascript %}
-    <!--Form validation [ SAMPLE ]-->
-    <script src="/static/js/demo/form-validation.js"></script>
+<!--Form validation [ SAMPLE ]-->
+<script src="/static/js/demo/form-validation.js"></script>
 {% endblock javascript %}
 
 {% block content-container %}
-    <div id="page-title">
-        <h1 class="page-header text-overflow">首页</h1>
-    </div>
+<div id="page-title">
+    <h1 class="page-header text-overflow">首页</h1>
+</div>
 
-    <div id="page-content">
+<div id="page-content">
 
-        <div class="row">
+    <div class="row">
+        <div class="col-xs-12">
 
-            <div class="col-xs-12">
+            <div class="panel">
+                <!--Data Table-->
+                <!--===================================================-->
+                <div class="panel-body">
+                    <div class="row">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+                        data-target="#myModal">
+                        添加图书
+                    </button>
 
-                <div class="panel">
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+                    aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">添加图书</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="panel">
+                                                <form id="demo-bvd-notempty" action="" method="post"
+                                                class="form-horizontal">
+                                                <div class="panel-body">
+                                                    <!--NOT EMPTY VALIDATOR-->
+                                                    <!--===================================================-->
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 control-label">书名</label>
+                                                        <div class="col-lg-4">
+                                                            {{ bookForm.name }}
+                                                        </div>
+                                                    </div>
 
+                                                    <hr>
 
-                    <!--Data Table-->
-                    <!--===================================================-->
-                    <div class="panel-body">
-                        <div class="row">
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
-                                    data-target="#myModal">
-                                添加图书
-                            </button>
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 control-label">出版时间</label>
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-                                 aria-labelledby="myModalLabel">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title" id="myModalLabel">添加图书</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="panel">
-                                                        <form id="demo-bvd-notempty" action="" method="post"
-                                                              class="form-horizontal">
-                                                            <div class="panel-body">
-                                                                <!--NOT EMPTY VALIDATOR-->
-                                                                <!--===================================================-->
-                                                                <div class="form-group">
-                                                                    <label class="col-lg-2 control-label">书名</label>
-                                                                    <div class="col-lg-4">
-                                                                        {{ bookForm.name }}
-                                                                    </div>
-                                                                </div>
+                                                        <div class="col-lg-4">
+                                                            {{ bookForm.publisher_year }}
+                                                        </div>
+                                                    </div>
 
-                                                                <hr>
+                                                    <hr>
 
-                                                                <div class="form-group">
-                                                                    <label class="col-lg-2 control-label">出版时间</label>
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 control-label">价格</label>
 
-                                                                    <div class="col-lg-4">
-                                                                        {{ bookForm.publisher_year }}
-                                                                    </div>
-                                                                </div>
+                                                        <div class="col-lg-4">
+                                                            {{ bookForm.price }}
+                                                        </div>
+                                                    </div>
 
-                                                                <hr>
+                                                    <hr>
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 control-label">出版状态</label>
 
-                                                                <div class="form-group">
-                                                                    <label class="col-lg-2 control-label">价格</label>
+                                                        <div class="col-lg-4">
+                                                            {{ bookForm.status }}
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 control-label">类型</label>
 
-                                                                    <div class="col-lg-4">
-                                                                        {{ bookForm.price }}
-                                                                    </div>
-                                                                </div>
+                                                        <div class="col-lg-4">
+                                                            {{ bookForm.type }}
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 control-label">作者</label>
 
-                                                                <hr>
-                                                                <div class="form-group">
-                                                                    <label class="col-lg-2 control-label">出版状态</label>
-
-                                                                    <div class="col-lg-4">
-                                                                        {{ bookForm.status }}
-                                                                    </div>
-                                                                </div>
-
-                                                                <hr>
-
-                                                            </div>
-                                                        </form>
+                                                        <div class="col-lg-4">
+                                                            {{ bookForm.author }}
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">取消
-                                            </button>
-                                            <button type="button" class="btn btn-primary">保存修改</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th>图书名</th>
-                                    <th>作者</th>
-                                    <th>出版日期</th>
-                                    <th>类别</th>
-                                    <th class="text-center">出版状态</th>
-                                    <th class="text-center">库存数量</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for book in book_obj %}
-                                    <tr>
-                                        <td><a href="{% url 'detail' %}?bookId={{ book.info.id }}"
-                                               class="btn-link">{{ book.name }}</a></td>
-                                        <td>{% for book_author in book.author.all %} {{ book_author.name }}
-                                            ,{% endfor %}</td>
-                                        <td><span class="text-muted"><i
-                                                class="fa fa-clock-o"></i>{{ book.publish_year }}</span></td>
-                                        <td>{{ book.type }}</td>
-                                        {% if book.status == True %}
-                                            <td class="text-center">
-                                                <div class="label label-table label-success">已出版</div>
-                                            </td>
-                                        {% else %}
-                                            <td class="text-center">
-                                                <div class="label label-table label-danger">未出版</div>
-                                            </td>
-                                        {% endif %}
-                                        <td class="text-center">{{ book.stocks }}</td>
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                        <hr>
-                        <div class="pull-right">
-                            <ul class="pagination text-nowrap mar-no">
-                                {% if book_obj.has_previous == True %}
-                                    <li class="page-pre">
-                                        <a href="?pageNum={{ book_obj.previous_page_number }}">上一页</a>
-                                    </li>
-                                {% else %}
-                                    <li class="page-pre">
-                                        <span>上一页</span>
-                                    </li>
-                                {% endif %}
-                                {% for page in book_obj.paginator.page_range %}
-                                    {% if page == book_obj.number %}
-                                        <li class="page-number active">
-                                            <span>{{ page }}</span>
-                                        </li>
-                                    {% else %}
-                                        <li class="page-number">
-                                            <a href="?pageNum={{ page }}">{{ page }}</a>
-                                        </li>
-                                    {% endif %}
-                                {% endfor %}
-                                {% if book_obj.has_next == True %}
-                                    <li class="page-next">
-                                        <a href="?pageNum={{ book_obj.next_page_number }}">下一页</a>
-                                    </li>
-                                {% else %}
-                                    <li class="page-next">
-                                        <span>下一页</span>
-                                    </li>
-                                {% endif %}
-                            </ul>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                                </button>
+                                <button type="button" class="btn btn-primary">保存修改</button>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-        </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>图书名</th>
+                            <th>作者</th>
+                            <th>出版日期</th>
+                            <th>类别</th>
+                            <th class="text-center">出版状态</th>
+                            <th class="text-center">库存数量</th>
+                            <th class="text-center">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for book in book_obj %}
+                        <tr>
+                            <td><a href="{% url 'detail' %}?bookId={{ book.info.id }}"
+                             class="btn-link">{{ book.name }}</a></td>
+                             <td>{% for book_author in book.author.all %} {{ book_author.name }}
+                                ,{% endfor %}</td>
+                                <td><span class="text-muted"><i
+                                    class="fa fa-clock-o"></i>{{ book.publish_year }}</span></td>
+                                    <td>{{ book.type }}</td>
+                                    {% if book.status == True %}
+                                    <td class="text-center">
+                                        <div class="label label-table label-success">已出版</div>
+                                    </td>
+                                    {% else %}
+                                    <td class="text-center">
+                                        <div class="label label-table label-danger">未出版</div>
+                                    </td>
+                                    {% endif %}
+                                    <td class="text-center">{{ book.stocks }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr>
+                    <div class="pull-right">
+                        <ul class="pagination text-nowrap mar-no">
+                            {% if book_obj.has_previous == True %}
+                            <li class="page-pre">
+                                <a href="?pageNum={{ book_obj.previous_page_number }}">上一页</a>
+                            </li>
+                            {% else %}
+                            <li class="page-pre">
+                                <span>上一页</span>
+                            </li>
+                            {% endif %}
+                            {% for page in book_obj.paginator.page_range %}
+                            {% if page == book_obj.number %}
+                            <li class="page-number active">
+                                <span>{{ page }}</span>
+                            </li>
+                            {% else %}
+                            <li class="page-number">
+                                <a href="?pageNum={{ page }}">{{ page }}</a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                            {% if book_obj.has_next == True %}
+                            <li class="page-next">
+                                <a href="?pageNum={{ book_obj.next_page_number }}">下一页</a>
+                            </li>
+                            {% else %}
+                            <li class="page-next">
+                                <span>下一页</span>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
 
+            </div>
+        </div>
     </div>
+
+</div>
 {% endblock content-container %}
 {% block footer %}
 {% endblock footer %}
