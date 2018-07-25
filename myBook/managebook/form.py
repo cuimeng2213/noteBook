@@ -36,7 +36,7 @@ class BookForm(forms.Form):
 		widget = widgets.NumberInput(attrs={'class':'form-control','placeholder':'库存','id':'stocks'})
 		)
 	status = forms.ChoiceField(
-		choices = [('0','未出版'),('1','已出版')],
+		choices = [(0,'未出版'),(1,'已出版')],
 		widget=widgets.Select(attrs={'class':'selectpicker',
 			'type':'select','id':'status'}),
 		)
@@ -55,5 +55,34 @@ class BookForm(forms.Form):
 		choices = Author.objects.all().values_list('id','name'),
 		widget = widgets.SelectMultiple(
 			attrs = {"id": "demo-cs-multiselect"}
+			)
+		)
+class DetailForm(forms.Form):
+	chapter = forms.IntegerField(
+		 widget = widgets.NumberInput(
+		 		attrs = {'class':'form-control','id':'chapter','placeholder':'章节'},
+		 	)
+		)
+	pages = forms.IntegerField(
+		 widget = widgets.NumberInput(
+		 		attrs = {'class':'form-control','id':'pages','placeholder':'页数'},
+		 	)
+		)
+	words = forms.IntegerField(
+		 widget = widgets.NumberInput(
+		 		attrs = {'class':'form-control','id':'words','placeholder':'字数'},
+		 	)
+		)
+	contentinfo = forms.CharField(
+		 widget = widgets.Textarea(
+		 	attrs = {'rows':'8','class':'form-control','id':'demo-textarea-input-1','placeholder':'内容简介'}
+		 	)
+		)
+	catalog = forms.CharField(
+		widget = widgets.Textarea( attrs={'class':'form-control','id':'demo-textarea-input-2','placeholder':'目录'})
+		)
+	logo = forms.ImageField(
+		widget = widgets.FileInput(
+			attrs={'id':'file_logo',"class": 'fileinput-new btn btn-primary btn-file'}
 			)
 		)

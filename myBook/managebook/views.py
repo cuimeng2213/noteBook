@@ -1,16 +1,69 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import View, ListView
 from django.core.paginator import Paginator
+from django.http import JsonResponse
 from django.db.models import Q
 from .models import *
-from .form import BookForm
+from .form import BookForm, DetailForm
 import time
+from myBook import settings
+from PIL import Image
 
 # Create your views here.
 
 
 def index(request):
 	return render(request, 'base.html')
+class DelBook(View):
+	def post(self, request):
+		ret = {'status':'success','data':'删除成功'}
+		bookId = request.POST.get('book_id')
+		print('#############: ', bookId)
+		book = Book.objects.get(id=int(bookId))
+		book.delete()
+
+		return JsonResponse(ret)
+
+class CreateDetailsView(View):
+	def post(self, request):
+		ret = {'status':'','data':''}
+		print('##############: recv: ', request.POST)
+		detailForm = DetailForm(request.POST, request.FILES)
+		if detailForm.is_valid():
+			details_data = detailForm.cleaned_data
+			details = Details()
+			details.chapter = details_data['chapter']
+			details.pages = details_data['pages']
+			details.words = details_data['words']
+			details.contentinfo = details_data['contentinfo']
+			details.catalog = details_data['catalog']
+
+			#保存图片
+			logo = details_data['logo']
+			location = settings.MEDIA_ROOT+'\\images\\logo\\'+str(details_data['pages'])+ \
+				'_'+str(details_data['words'])+'_'+str(logo.name)
+			# print('###############: location: ', location, dir(request.FILES['logo']))
+			with open(location,'wb') as f:
+				for d in request.FILES['logo'].chunks():
+					f.write(d)
+
+			#保存图片路径
+			details.logo = location
+			details.save()
+
+			#关联对应的图书
+			print('###########bookid: ', request.POST.get('book_id'))
+			b = Book.objects.get(id=int(request.POST.get('book_id')))
+			b.info = details
+			b.save()
+			ret['status'] = 'success'
+			ret['data'] = '添加图书成功'
+		else:
+			print('############: form is_valid', detailForm.errors)
+			ret['status'] = 'failed'
+			ret['data'] = detailForm.errors
+
+		return JsonResponse(ret)
 
 class bookView(ListView):
 
@@ -109,10 +162,48 @@ class BookManage(ListView):
     context_object_name = 'book_obj'
     def get_queryset(self):
         queryset = super(BookManage, self).get_queryset()
-        return  queryset
+        pageNum = self.request.GET.get('pageNum',1)
+        print('##########: pageNum: ', pageNum)
+        pager = Paginator(queryset, 10)
+        cur = pager.page(pageNum)
+        return  cur
 
     def get_context_data(self, **kwargs):
         content = super(BookManage, self).get_context_data(**kwargs)
         bookForm = BookForm()
         content['bookForm'] = bookForm
+
+        details_form = DetailForm()
+        content['details_form'] = details_form
         return  content
+    def post(self, request):
+    	ret = {'status':'success','data':''}
+    	formData = BookForm(request.POST)
+    	print('####:', request.POST)
+    	try:
+    		if formData.is_valid():
+	    		cleanData = formData.cleaned_data
+	    		print('####: status type=', type(cleanData['status']))
+	    		book = Book()
+	    		book.name = cleanData['name']
+	    		book.publish_year = cleanData['publisher_year']
+	    		book.price = cleanData['price']
+	    		book.stocks = cleanData['stocks']
+	    		book.type_id = cleanData['type']
+	    		book.publisher_id = cleanData['publisher']
+	    		book.status = cleanData['status']
+	    		
+
+	    		book.save()
+	    		book.author.add(*cleanData['author'])
+	    		print('22222222222')
+
+	    		ret['status'] = 'success'
+	    		ret['data'] = '书籍添加成功'
+	    	else:
+	    		print('################# vvv: ',formData.errors)
+	    		ret = {'status':'failed','data':'书籍添加失败'}
+    	except Exception as e:
+    		print('###############: error: ', e)
+
+    	return JsonResponse(ret)

@@ -51,6 +51,7 @@
 
     <!--NAVBAR-->
     <!--===================================================-->
+
     <header id="navbar">
         <div id="navbar-container" class="boxed">
 
@@ -353,6 +354,7 @@
 
         </div>
     </header>
+
     <!--===================================================-->
     <!--END NAVBAR-->
 
@@ -519,6 +521,7 @@
 
         <!--MAIN NAVIGATION-->
         <!--===================================================-->
+        {% block mainnav %}
         <nav id="mainnav-container">
             <div id="mainnav">
 
@@ -570,6 +573,7 @@
                 </div>
             </div>
         </nav>
+        {% endblock mainnav %}
     </div>
     {% block footer %}
         <footer id="footer">
