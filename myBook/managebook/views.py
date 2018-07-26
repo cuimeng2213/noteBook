@@ -8,12 +8,45 @@ from .form import BookForm, DetailForm
 import time
 from myBook import settings
 from PIL import Image
+from django.forms import model_to_dict
 
 # Create your views here.
 
 
 def index(request):
 	return render(request, 'base.html')
+class EditBookView(View):
+	def get(self, request, index):
+		#获取全部图书
+		author_id = []
+		books = Book.objects.get(id=int(index))
+		book_dict = model_to_dict(books)
+
+		#
+		author_list = book_dict['author']
+		for author_obj in author_list:
+			author_id.append(author_obj.id)
+		try:
+			details = Details.objects.get(id=int(book_dict['info']))
+			details_dict = model_to_dict(details)
+			details_form = DetailForm(initial=details_dict)
+		except:
+			details_form = DetailsForm()
+			details = None
+			pass
+		book_dict['author'] = author_id
+		book_form = BookForm(initial=book_dict)
+
+		return render(request,'edit_book.html',{
+			'book_form':book_form,
+			'details_form':details_form,
+			'book_id':int(index),
+			'details':details,
+			})
+
+	def post(self, request):
+		pass
+
 class DelBook(View):
 	def post(self, request):
 		ret = {'status':'success','data':'删除成功'}
