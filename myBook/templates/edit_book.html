@@ -365,7 +365,7 @@
         <div id="content-container">
             {% block content-container %}
                 <div id="page-title">
-                    <h1 class="page-header text-overflow">首页</h1>
+                    <h1 class="page-header text-overflow">图书编辑</h1>
                 </div>
 				<hr>
 				<div class='raw' style="padding-left:250px;">
@@ -383,22 +383,23 @@
 								{{ book_form.publisher_year }}
 							</div>
 							<hr>
-							<div class="input-group ">
+							<div class="input-group">
 								<span class="input-group-addon" id="sizing-addon2">价格</span>
 								<!--<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">-->
 								{{ book_form.price }}
 							</div>
 							<hr>
-							<div class="input-group ">
+							<div class="input-group">
 								<span class="input-group-addon" id="sizing-addon2">库存</span>
 								<!--<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">-->
 								{{ book_form.stocks }}
+
 							</div>
 							<hr>
 							<div class="input-group ">
-								<span class="input-group-addon" id="sizing-addon2">书名</span>
-								<!--<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">-->
-								{{ book_form.name }}
+                                <span class="input-group-addon" id="sizing-addon2">出版状态</span>
+                                <!--<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">-->
+                                {{ book_form.status }}
 							</div>
 							<hr>
 					  </form>
