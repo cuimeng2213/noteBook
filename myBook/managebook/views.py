@@ -12,9 +12,9 @@ from django.forms import model_to_dict
 
 # Create your views here.
 
-
 def index(request):
 	return render(request, 'base.html')
+
 class EditBookView(View):
 	def get(self, request, index):
 		#获取全部图书
@@ -31,7 +31,7 @@ class EditBookView(View):
 			details_dict = model_to_dict(details)
 			details_form = DetailForm(initial=details_dict)
 		except:
-			details_form = DetailsForm()
+			details_form = DetailForm()
 			details = None
 			pass
 		book_dict['author'] = author_id
@@ -45,7 +45,49 @@ class EditBookView(View):
 			})
 
 	def post(self, request):
-		pass
+		details_form = DetailForm(request.POST,request.FILES)
+		book_form=BookForm(request.POST)
+		if details_form.is_valid() and book_form.is_valid():
+			book_data = book_form.cleaned_data
+			details_data = details_form.cleaned_data
+
+			book = Book.objects.filter(id=int(book_id))
+
+			try:
+				details = Book.objects.filter(id=int(book[0].info_id))
+			except Exception as e:
+				details = None
+				print(e)
+			book.update(
+				name=book_data['name'],
+				publish_year = book_data['publisher_year'],
+				price = book_data['price'],
+				stocks = book_data['stocks'],
+				status = book_data['status'],
+				type_id = book_data['type'],
+				publish_id =book_data['publisher'] 
+				)
+			book[0].author.set(book_data['author'])
+
+			print('book update success')
+
+			if details:
+				#如果执行try里面的代码表示有图片更新
+				try:
+					logo = request.FILES['logo']
+					tmpName = str(details_data['pages']) + '_'+str(details_data['words'])+'_'+str(logo.name)
+					location = settings.STATICFILES_DIRS[0]+'/media/images/logo/'+tmpName
+					with open(location,'wb') as f:
+						for chunk in request.FILES['logo'].chunks:
+							f.write(chunk)
+
+				except Exception as e:
+					#此处是没有图片更新
+					pass
+			else:
+				pass
+
+			return render(request, 'edit_book.html')
 
 class DelBook(View):
 	def post(self, request):
@@ -73,12 +115,12 @@ class CreateDetailsView(View):
 
 			#保存图片
 			logo = details_data['logo']
-			location = settings.MEDIA_ROOT+'\\images\\logo\\'+str(details_data['pages'])+ \
-				'_'+str(details_data['words'])+'_'+str(logo.name)
-			# print('###############: location: ', location, dir(request.FILES['logo']))
-			with open(location,'wb') as f:
-				for d in request.FILES['logo'].chunks():
-					f.write(d)
+			tmpName = str(details_data['pages']) + '_'+str(details_data['words'])+'_'+str(logo.name)
+			location = 'media/images/logo/'+ tmpName
+
+			#open传入的是request的files获取的文件句柄
+			img = Image.open(logo)
+			img.save(location)
 
 			#保存图片路径
 			details.logo = location
@@ -190,53 +232,53 @@ class bookView(ListView):
 			info = {}
 		return info
 class BookManage(ListView):
-    template_name = 'book.html'
-    model = Book
-    context_object_name = 'book_obj'
-    def get_queryset(self):
-        queryset = super(BookManage, self).get_queryset()
-        pageNum = self.request.GET.get('pageNum',1)
-        print('##########: pageNum: ', pageNum)
-        pager = Paginator(queryset, 10)
-        cur = pager.page(pageNum)
-        return  cur
+	template_name = 'book.html'
+	model = Book
+	context_object_name = 'book_obj'
+	def get_queryset(self):
+		queryset = super(BookManage, self).get_queryset()
+		pageNum = self.request.GET.get('pageNum',1)
+		print('##########: pageNum: ', pageNum)
+		pager = Paginator(queryset, 10)
+		cur = pager.page(pageNum)
+		return  cur
 
-    def get_context_data(self, **kwargs):
-        content = super(BookManage, self).get_context_data(**kwargs)
-        bookForm = BookForm()
-        content['bookForm'] = bookForm
+	def get_context_data(self, **kwargs):
+		content = super(BookManage, self).get_context_data(**kwargs)
+		bookForm = BookForm()
+		content['bookForm'] = bookForm
 
-        details_form = DetailForm()
-        content['details_form'] = details_form
-        return  content
-    def post(self, request):
-    	ret = {'status':'success','data':''}
-    	formData = BookForm(request.POST)
-    	print('####:', request.POST)
-    	try:
-    		if formData.is_valid():
-	    		cleanData = formData.cleaned_data
-	    		print('####: status type=', type(cleanData['status']))
-	    		book = Book()
-	    		book.name = cleanData['name']
-	    		book.publish_year = cleanData['publisher_year']
-	    		book.price = cleanData['price']
-	    		book.stocks = cleanData['stocks']
-	    		book.type_id = cleanData['type']
-	    		book.publisher_id = cleanData['publisher']
-	    		book.status = cleanData['status']
-	    		
+		details_form = DetailForm()
+		content['details_form'] = details_form
+		return  content
+	def post(self, request):
+		ret = {'status':'success','data':''}
+		formData = BookForm(request.POST)
+		print('####:', request.POST)
+		try:
+			if formData.is_valid():
+				cleanData = formData.cleaned_data
+				print('####: status type=', type(cleanData['status']))
+				book = Book()
+				book.name = cleanData['name']
+				book.publish_year = cleanData['publisher_year']
+				book.price = cleanData['price']
+				book.stocks = cleanData['stocks']
+				book.type_id = cleanData['type']
+				book.publisher_id = cleanData['publisher']
+				book.status = cleanData['status']
 
-	    		book.save()
-	    		book.author.add(*cleanData['author'])
-	    		print('22222222222')
 
-	    		ret['status'] = 'success'
-	    		ret['data'] = '书籍添加成功'
-	    	else:
-	    		print('################# vvv: ',formData.errors)
-	    		ret = {'status':'failed','data':'书籍添加失败'}
-    	except Exception as e:
-    		print('###############: error: ', e)
+				book.save()
+				book.author.add(*cleanData['author'])
+				print('22222222222')
 
-    	return JsonResponse(ret)
+				ret['status'] = 'success'
+				ret['data'] = '书籍添加成功'
+			else:
+				print('################# vvv: ',formData.errors)
+				ret = {'status':'failed','data':'书籍添加失败'}
+		except Exception as e:
+			print('###############: error: ', e)
+
+		return JsonResponse(ret)
