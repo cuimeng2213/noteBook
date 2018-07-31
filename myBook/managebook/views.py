@@ -43,7 +43,6 @@ class EditBookView(View):
 			'book_id':int(index),
 			'details':details,
 			})
-
 	def post(self, request):
 		pass
 
