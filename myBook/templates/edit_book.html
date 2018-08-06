@@ -22,7 +22,7 @@
     <!--Magic Checkbox [ OPTIONAL ]-->
     <link href="/static/plugins/magic-check/css/magic-check.min.css" rel="stylesheet">
     {% block css %}
-        <!--Switchery [ OPTIONAL ]-->
+    <!--Switchery [ OPTIONAL ]-->
     <link href="/static/plugins/switchery/switchery.min.css" rel="stylesheet">
 
 
@@ -87,7 +87,7 @@
     <!--Specify page [ SAMPLE ]-->
     <script src="/static/js/demo/dashboard.js"></script>
     {% block javascript %}
-        <!--noUiSlider [ OPTIONAL ]-->
+    <!--noUiSlider [ OPTIONAL ]-->
     <script src="/static/plugins/noUiSlider/nouislider.min.js"></script>
 
     <!--Switchery [ OPTIONAL ]-->
@@ -142,460 +142,458 @@
 <!--TIPS-->
 <!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
 <body>
-<div id="container" class="effect aside-float aside-bright mainnav-lg">
+    <div id="container" class="effect aside-float aside-bright mainnav-lg">
 
-    <!--NAVBAR-->
-    <!--===================================================-->
-
-    <header id="navbar">
-        <div id="navbar-container" class="boxed">
-
-            <!--Brand logo & name-->
-            <!--================================-->
-            <div class="navbar-header">
-                <a href="index.html" class="navbar-brand">
-                    <img src="img/logo.png" alt="Nifty Logo" class="brand-icon">
-                    <div class="brand-title">
-                        <span class="brand-text">图书馆里系统</span>
-                    </div>
-                </a>
-            </div>
-            <!--================================-->
-            <!--End brand logo & name-->
-
-
-            <!--Navbar Dropdown-->
-            <!--================================-->
-            <div class="navbar-content clearfix">
-                <ul class="nav navbar-top-links pull-left">
-
-                    <!--Navigation toogle button-->
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <li class="tgl-menu-btn">
-                        <a class="mainnav-toggle" href="#">
-                            <i class="demo-pli-view-list"></i>
-                        </a>
-                    </li>
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <!--End Navigation toogle button-->
-
-
-                    <!--Notification dropdown-->
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                            <i class="demo-pli-bell"></i>
-                            <span class="badge badge-header badge-danger"></span>
-                        </a>
-
-                        <!--Notification dropdown menu-->
-                        <div class="dropdown-menu dropdown-menu-md">
-                            <div class="pad-all bord-btm">
-                                <p class="text-semibold text-main mar-no">You have 9 notifications.</p>
-                            </div>
-                            <div class="nano scrollable">
-                                <div class="nano-content">
-                                    <ul class="head-list">
-
-                                        <!-- Dropdown list-->
-                                        <li>
-                                            <a href="#">
-                                                <div class="clearfix">
-                                                    <p class="pull-left">Database Repair</p>
-                                                    <p class="pull-right">70%</p>
-                                                </div>
-                                                <div class="progress progress-sm">
-                                                    <div style="width: 70%;" class="progress-bar">
-                                                        <span class="sr-only">70% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <!-- Dropdown list-->
-                                        <li>
-                                            <a href="#">
-                                                <div class="clearfix">
-                                                    <p class="pull-left">Upgrade Progress</p>
-                                                    <p class="pull-right">10%</p>
-                                                </div>
-                                                <div class="progress progress-sm">
-                                                    <div style="width: 10%;" class="progress-bar progress-bar-warning">
-                                                        <span class="sr-only">10% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <!-- Dropdown list-->
-                                        <li>
-                                            <a class="media" href="#">
-                                                <span class="badge badge-success pull-right">90%</span>
-                                                <div class="media-left">
-                                                    <i class="demo-pli-data-settings icon-2x"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="text-nowrap">HDD is full</div>
-                                                    <small class="text-muted">50 minutes ago</small>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <!-- Dropdown list-->
-                                        <li>
-                                            <a class="media" href="#">
-                                                <div class="media-left">
-                                                    <i class="demo-pli-file-edit icon-2x"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="text-nowrap">Write a news article</div>
-                                                    <small class="text-muted">Last Update 8 hours ago</small>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <!-- Dropdown list-->
-                                        <li>
-                                            <a class="media" href="#">
-                                                <span class="label label-danger pull-right">New</span>
-                                                <div class="media-left">
-                                                    <i class="demo-pli-speech-bubble-7 icon-2x"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="text-nowrap">Comment Sorting</div>
-                                                    <small class="text-muted">Last Update 8 hours ago</small>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <!-- Dropdown list-->
-                                        <li>
-                                            <a class="media" href="#">
-                                                <div class="media-left">
-                                                    <i class="demo-pli-add-user-plus-star icon-2x"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="text-nowrap">New User Registered</div>
-                                                    <small class="text-muted">4 minutes ago</small>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <!-- Dropdown list-->
-                                        <li class="bg-gray">
-                                            <a class="media" href="#">
-                                                <div class="media-left">
-                                                    <img class="img-circle img-sm" alt="Profile Picture"
-                                                         src="img/profile-photos/9.png">
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="text-nowrap">Lucy sent you a message</div>
-                                                    <small class="text-muted">30 minutes ago</small>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <!-- Dropdown list-->
-                                        <li class="bg-gray">
-                                            <a class="media" href="#">
-                                                <div class="media-left">
-                                                    <img class="img-circle img-sm" alt="Profile Picture"
-                                                         src="img/profile-photos/3.png">
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="text-nowrap">Jackson sent you a message</div>
-                                                    <small class="text-muted">40 minutes ago</small>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!--Dropdown footer-->
-                            <div class="pad-all bord-top">
-                                <a href="#" class="btn-link text-dark box-block">
-                                    <i class="fa fa-angle-right fa-lg pull-right"></i>Show All Notifications
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="mega-dropdown">
-                        <a href="#" class="mega-dropdown-toggle">
-                            <i class="demo-pli-layout-grid"></i>
-                        </a>
-                        <div class="dropdown-menu mega-dropdown-menu">
-                            <div class="row">
-                                <div class="col-sm-4 col-md-3">
-
-                                    <!--Mega menu list-->
-                                    <ul class="list-unstyled">
-                                        <li class="dropdown-header"><i class="demo-pli-file icon-fw"></i> Pages</li>
-                                        <li><a href="#">Profile</a></li>
-                                        <li><a href="#">Search Result</a></li>
-                                        <li><a href="#">FAQ</a></li>
-                                        <li><a href="#">Sreen Lock</a></li>
-                                        <li><a href="#" class="disabled">Disabled</a></li>
-                                    </ul>
-
-                                </div>
-                                <div class="col-sm-4 col-md-3">
-
-                                    <!--Mega menu list-->
-                                    <ul class="list-unstyled">
-                                        <li class="dropdown-header"><i class="demo-pli-mail icon-fw"></i> Mailbox</li>
-                                        <li><a href="#"><span class="pull-right label label-danger">Hot</span>Indox</a>
-                                        </li>
-                                        <li><a href="#">Read Message</a></li>
-                                        <li><a href="#">Compose</a></li>
-                                    </ul>
-                                    <p class="pad-top mar-top bord-top text-sm">Lorem ipsum dolor sit amet, consectetuer
-                                        adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                                        natoque penatibus et magnis dis parturient montes.</p>
-                                </div>
-                                <div class="col-sm-4 col-md-3">
-                                    <!--Mega menu list-->
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <a href="#" class="media mar-btm">
-                                                <span class="badge badge-success pull-right">90%</span>
-                                                <div class="media-left">
-                                                    <i class="demo-pli-data-settings icon-2x"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <p class="text-semibold text-dark mar-no">Data Backup</p>
-                                                    <small class="text-muted">This is the item description</small>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="media mar-btm">
-                                                <div class="media-left">
-                                                    <i class="demo-pli-support icon-2x"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <p class="text-semibold text-dark mar-no">Support</p>
-                                                    <small class="text-muted">This is the item description</small>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="media mar-btm">
-                                                <div class="media-left">
-                                                    <i class="demo-pli-computer-secure icon-2x"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <p class="text-semibold text-dark mar-no">Security</p>
-                                                    <small class="text-muted">This is the item description</small>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="media mar-btm">
-                                                <div class="media-left">
-                                                    <i class="demo-pli-map-2 icon-2x"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <p class="text-semibold text-dark mar-no">Location</p>
-                                                    <small class="text-muted">This is the item description</small>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-12 col-md-3">
-                                    <p class="dropdown-header"><i class="demo-pli-file-jpg icon-fw"></i> Gallery</p>
-                                    <ul class="list-unstyled list-inline text-justify">
-
-                                        <li class="pad-btm">
-                                            <img src="img//thumbs/mega-menu-2.jpg" alt="thumbs">
-                                        </li>
-                                        <li class="pad-btm">
-                                            <img src="img//thumbs/mega-menu-3.jpg" alt="thumbs">
-                                        </li>
-                                        <li class="pad-btm">
-                                            <img src="img//thumbs/mega-menu-1.jpg" alt="thumbs">
-                                        </li>
-                                        <li class="pad-btm">
-                                            <img src="img//thumbs/mega-menu-4.jpg" alt="thumbs">
-                                        </li>
-                                        <li class="pad-btm">
-                                            <img src="img//thumbs/mega-menu-5.jpg" alt="thumbs">
-                                        </li>
-                                        <li class="pad-btm">
-                                            <img src="img//thumbs/mega-menu-6.jpg" alt="thumbs">
-                                        </li>
-                                    </ul>
-                                    <a href="#" class="btn btn-sm btn-block btn-default">Browse Gallery</a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <!--End mega dropdown-->
-
-                </ul>
-                <ul class="nav navbar-top-links pull-right">
-                    <li>
-                        <a href="#" class="aside-toggle navbar-aside-icon">
-                            <i class="pci-ver-dots"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!--================================-->
-            <!--End Navbar Dropdown-->
-
-        </div>
-    </header>
-
-    <!--===================================================-->
-    <!--END NAVBAR-->
-
-    <div class="boxed">
-
-        <!--CONTENT CONTAINER-->
+        <!--NAVBAR-->
         <!--===================================================-->
-<<<<<<< HEAD
 
-{% block content-container %}
-    <div class="panel">
-        <div class="panel-heading">
-            <h3 class="panel-title">图书编辑</h3>
-        </div>
-        <div class="panel-body demo-nifty-btn">
-            <form action="" class="panel-body form-horizontal form-padding"
-                  enctype="multipart/form-data" method="post" novalidate>
+        <header id="navbar">
+            <div id="navbar-container" class="boxed">
 
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
-                           for="demo-text-input">书名</label>
-                    <div class="col-md-5">
-                        {{ book_form.name }}
-                    </div>
+                <!--Brand logo & name-->
+                <!--================================-->
+                <div class="navbar-header">
+                    <a href="index.html" class="navbar-brand">
+                        <img src="img/logo.png" alt="Nifty Logo" class="brand-icon">
+                        <div class="brand-title">
+                            <span class="brand-text">图书馆里系统</span>
+                        </div>
+                    </a>
                 </div>
+                <!--================================-->
+                <!--End brand logo & name-->
 
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
-                           for="demo-text-input">出版日期</label>
-                    <div class="col-md-5">
-                        {{ book_form.publish_year }}
-                    </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
-                           for="demo-text-input">价格</label>
-                    <div class="col-md-5">
-                        {{ book_form.price }}
-                    </div>
-                </div>
+                <!--Navbar Dropdown-->
+                <!--================================-->
+                <div class="navbar-content clearfix">
+                    <ul class="nav navbar-top-links pull-left">
 
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
-                           for="demo-text-input">库存</label>
-                    <div class="col-md-5">
-                        {{ book_form.stocks }}
-                    </div>
-                </div>
+                        <!--Navigation toogle button-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="tgl-menu-btn">
+                            <a class="mainnav-toggle" href="#">
+                                <i class="demo-pli-view-list"></i>
+                            </a>
+                        </li>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End Navigation toogle button-->
 
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
-                           for="demo-text-input">作者</label>
-                    <div class="col-md-5">
-                        {{ book_form.author }}
-                    </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
-                           for="demo-text-input">出版状态</label>
-                    <div class="col-md-1">
-                        <div class="select">{{ book_form.status }}</div>
-                    </div>
-                </div>
+                        <!--Notification dropdown-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                <i class="demo-pli-bell"></i>
+                                <span class="badge badge-header badge-danger"></span>
+                            </a>
 
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
-                           for="demo-text-input">类型选择</label>
-                    <div class="col-md-5">
-                        {{ book_form.type }}
-                    </div>
-                </div>
+                            <!--Notification dropdown menu-->
+                            <div class="dropdown-menu dropdown-menu-md">
+                                <div class="pad-all bord-btm">
+                                    <p class="text-semibold text-main mar-no">You have 9 notifications.</p>
+                                </div>
+                                <div class="nano scrollable">
+                                    <div class="nano-content">
+                                        <ul class="head-list">
 
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
-                           for="demo-text-input">出版社选择</label>
-                    <div class="col-md-5">
-                        {{ book_form.publisher }}
-                    </div>
-                </div>
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#">
+                                                    <div class="clearfix">
+                                                        <p class="pull-left">Database Repair</p>
+                                                        <p class="pull-right">70%</p>
+                                                    </div>
+                                                    <div class="progress progress-sm">
+                                                        <div style="width: 70%;" class="progress-bar">
+                                                            <span class="sr-only">70% Complete</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
 
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
-                           for="demo-text-input">章节</label>
-                    <div class="col-md-5">
-                        {{ details_form.chapter }}
-                    </div>
-                </div>
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#">
+                                                    <div class="clearfix">
+                                                        <p class="pull-left">Upgrade Progress</p>
+                                                        <p class="pull-right">10%</p>
+                                                    </div>
+                                                    <div class="progress progress-sm">
+                                                        <div style="width: 10%;" class="progress-bar progress-bar-warning">
+                                                            <span class="sr-only">10% Complete</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
 
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
-                           for="demo-text-input">页数</label>
-                    <div class="col-md-5">
-                        {{ details_form.pages }}
-                    </div>
-                </div>
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a class="media" href="#">
+                                                    <span class="badge badge-success pull-right">90%</span>
+                                                    <div class="media-left">
+                                                        <i class="demo-pli-data-settings icon-2x"></i>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">HDD is full</div>
+                                                        <small class="text-muted">50 minutes ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
 
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
-                           for="demo-text-input">字数</label>
-                    <div class="col-md-5">
-                        {{ details_form.words }}
-                    </div>
-                </div>
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a class="media" href="#">
+                                                    <div class="media-left">
+                                                        <i class="demo-pli-file-edit icon-2x"></i>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Write a news article</div>
+                                                        <small class="text-muted">Last Update 8 hours ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
 
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
-                           for="demo-text-input">内容简介</label>
-                    <div class="col-md-5">
-                        {{ details_form.contentinfo }}
-                    </div>
-                </div>
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a class="media" href="#">
+                                                    <span class="label label-danger pull-right">New</span>
+                                                    <div class="media-left">
+                                                        <i class="demo-pli-speech-bubble-7 icon-2x"></i>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Comment Sorting</div>
+                                                        <small class="text-muted">Last Update 8 hours ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
 
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
-                           for="demo-text-input">目录</label>
-                    <div class="col-md-5">
-                        {{ details_form.catalog }}
-                    </div>
-                </div>
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a class="media" href="#">
+                                                    <div class="media-left">
+                                                        <i class="demo-pli-add-user-plus-star icon-2x"></i>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">New User Registered</div>
+                                                        <small class="text-muted">4 minutes ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
 
-                <div class="form-group {% if detailsform.errors.logo %}has-error{% endif %}">
-                    <label class="col-md-3 control-label">图书封面</label>
-                    <div class="form-group col-md-5" id="uploadForm" enctype='multipart/form-data'>
-                        <div class="h4">图片预览</div>
-                        <div class="fileinput fileinput-new" data-provides="fileinput" id="exampleInputUpload">
+                                            <!-- Dropdown list-->
+                                            <li class="bg-gray">
+                                                <a class="media" href="#">
+                                                    <div class="media-left">
+                                                        <img class="img-circle img-sm" alt="Profile Picture"
+                                                        src="img/profile-photos/9.png">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Lucy sent you a message</div>
+                                                        <small class="text-muted">30 minutes ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
 
-                            <div class="fileinput-new thumbnail"
-                                 style="width: 200px;height: auto;max-height:150px;">
-                                {% if details.logo %}
-                                    <img src='/{{ details.logo }}' style="max-height: 140px;">
-                                {% else %}
-                                    <img src="/static/fileinput/images/noimage.png" style="max-height: 140px;">
-                                {% endif %}
+                                            <!-- Dropdown list-->
+                                            <li class="bg-gray">
+                                                <a class="media" href="#">
+                                                    <div class="media-left">
+                                                        <img class="img-circle img-sm" alt="Profile Picture"
+                                                        src="img/profile-photos/3.png">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Jackson sent you a message</div>
+                                                        <small class="text-muted">40 minutes ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!--Dropdown footer-->
+                                <div class="pad-all bord-top">
+                                    <a href="#" class="btn-link text-dark box-block">
+                                        <i class="fa fa-angle-right fa-lg pull-right"></i>Show All Notifications
+                                    </a>
+                                </div>
                             </div>
+                        </li>
 
-                            <div class="fileinput-preview fileinput-exists thumbnail"
-                                 style="max-width: 200px; max-height: 150px;">
+                        <li class="mega-dropdown">
+                            <a href="#" class="mega-dropdown-toggle">
+                                <i class="demo-pli-layout-grid"></i>
+                            </a>
+                            <div class="dropdown-menu mega-dropdown-menu">
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-3">
+
+                                        <!--Mega menu list-->
+                                        <ul class="list-unstyled">
+                                            <li class="dropdown-header"><i class="demo-pli-file icon-fw"></i> Pages</li>
+                                            <li><a href="#">Profile</a></li>
+                                            <li><a href="#">Search Result</a></li>
+                                            <li><a href="#">FAQ</a></li>
+                                            <li><a href="#">Sreen Lock</a></li>
+                                            <li><a href="#" class="disabled">Disabled</a></li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="col-sm-4 col-md-3">
+
+                                        <!--Mega menu list-->
+                                        <ul class="list-unstyled">
+                                            <li class="dropdown-header"><i class="demo-pli-mail icon-fw"></i> Mailbox</li>
+                                            <li><a href="#"><span class="pull-right label label-danger">Hot</span>Indox</a>
+                                            </li>
+                                            <li><a href="#">Read Message</a></li>
+                                            <li><a href="#">Compose</a></li>
+                                        </ul>
+                                        <p class="pad-top mar-top bord-top text-sm">Lorem ipsum dolor sit amet, consectetuer
+                                            adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
+                                            natoque penatibus et magnis dis parturient montes.</p>
+                                        </div>
+                                        <div class="col-sm-4 col-md-3">
+                                            <!--Mega menu list-->
+                                            <ul class="list-unstyled">
+                                                <li>
+                                                    <a href="#" class="media mar-btm">
+                                                        <span class="badge badge-success pull-right">90%</span>
+                                                        <div class="media-left">
+                                                            <i class="demo-pli-data-settings icon-2x"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <p class="text-semibold text-dark mar-no">Data Backup</p>
+                                                            <small class="text-muted">This is the item description</small>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="media mar-btm">
+                                                        <div class="media-left">
+                                                            <i class="demo-pli-support icon-2x"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <p class="text-semibold text-dark mar-no">Support</p>
+                                                            <small class="text-muted">This is the item description</small>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="media mar-btm">
+                                                        <div class="media-left">
+                                                            <i class="demo-pli-computer-secure icon-2x"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <p class="text-semibold text-dark mar-no">Security</p>
+                                                            <small class="text-muted">This is the item description</small>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="media mar-btm">
+                                                        <div class="media-left">
+                                                            <i class="demo-pli-map-2 icon-2x"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <p class="text-semibold text-dark mar-no">Location</p>
+                                                            <small class="text-muted">This is the item description</small>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-12 col-md-3">
+                                            <p class="dropdown-header"><i class="demo-pli-file-jpg icon-fw"></i> Gallery</p>
+                                            <ul class="list-unstyled list-inline text-justify">
+
+                                                <li class="pad-btm">
+                                                    <img src="img//thumbs/mega-menu-2.jpg" alt="thumbs">
+                                                </li>
+                                                <li class="pad-btm">
+                                                    <img src="img//thumbs/mega-menu-3.jpg" alt="thumbs">
+                                                </li>
+                                                <li class="pad-btm">
+                                                    <img src="img//thumbs/mega-menu-1.jpg" alt="thumbs">
+                                                </li>
+                                                <li class="pad-btm">
+                                                    <img src="img//thumbs/mega-menu-4.jpg" alt="thumbs">
+                                                </li>
+                                                <li class="pad-btm">
+                                                    <img src="img//thumbs/mega-menu-5.jpg" alt="thumbs">
+                                                </li>
+                                                <li class="pad-btm">
+                                                    <img src="img//thumbs/mega-menu-6.jpg" alt="thumbs">
+                                                </li>
+                                            </ul>
+                                            <a href="#" class="btn btn-sm btn-block btn-default">Browse Gallery</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                            <!--End mega dropdown-->
+
+                        </ul>
+                        <ul class="nav navbar-top-links pull-right">
+                            <li>
+                                <a href="#" class="aside-toggle navbar-aside-icon">
+                                    <i class="pci-ver-dots"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--================================-->
+                    <!--End Navbar Dropdown-->
+
+                </div>
+            </header>
+
+            <!--===================================================-->
+            <!--END NAVBAR-->
+
+            <div class="boxed">
+
+                <!--CONTENT CONTAINER-->
+                <!--===================================================-->
+                {% block content-container %}
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">图书编辑</h3>
+                    </div>
+                    <div class="panel-body demo-nifty-btn">
+                        <form action="" class="panel-body form-horizontal form-padding"
+                        enctype="multipart/form-data" method="post" novalidate>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"
+                            for="demo-text-input">书名</label>
+                            <div class="col-md-5">
+                                {{ book_form.name }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"
+                            for="demo-text-input">出版日期</label>
+                            <div class="col-md-5">
+                                {{ book_form.publish_year }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"
+                            for="demo-text-input">价格</label>
+                            <div class="col-md-5">
+                                {{ book_form.price }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"
+                            for="demo-text-input">库存</label>
+                            <div class="col-md-5">
+                                {{ book_form.stocks }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"
+                            for="demo-text-input">作者</label>
+                            <div class="col-md-5">
+                                {{ book_form.author }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"
+                            for="demo-text-input">出版状态</label>
+                            <div class="col-md-1">
+                                <div class="select">{{ book_form.status }}</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"
+                            for="demo-text-input">类型选择</label>
+                            <div class="col-md-5">
+                                {{ book_form.type }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"
+                            for="demo-text-input">出版社选择</label>
+                            <div class="col-md-5">
+                                {{ book_form.publisher }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"
+                            for="demo-text-input">章节</label>
+                            <div class="col-md-5">
+                                {{ details_form.chapter }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"
+                            for="demo-text-input">页数</label>
+                            <div class="col-md-5">
+                                {{ details_form.pages }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"
+                            for="demo-text-input">字数</label>
+                            <div class="col-md-5">
+                                {{ details_form.words }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"
+                            for="demo-text-input">内容简介</label>
+                            <div class="col-md-5">
+                                {{ details_form.contentinfo }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"
+                            for="demo-text-input">目录</label>
+                            <div class="col-md-5">
+                                {{ details_form.catalog }}
+                            </div>
+                        </div>
+
+                        <div class="form-group {% if detailsform.errors.logo %}has-error{% endif %}">
+                            <label class="col-md-3 control-label">图书封面</label>
+                            <div class="form-group col-md-5" id="uploadForm" enctype='multipart/form-data'>
+                                <div class="h4">图片预览</div>
+                                <div class="fileinput fileinput-new" data-provides="fileinput" id="exampleInputUpload">
+
+                                    <div class="fileinput-new thumbnail"
+                                    style="width: 200px;height: auto;max-height:150px;">
+                                    {% if details.logo %}
+                                    <img src='/{{ details.logo }}' style="max-height: 140px;">
+                                    {% else %}
+                                    <img src="/static/fileinput/images/noimage.png" style="max-height: 140px;">
+                                    {% endif %}
+                                </div>
+
+                                <div class="fileinput-preview fileinput-exists thumbnail"
+                                style="max-width: 200px; max-height: 150px;">
                                 <img src="{{MEDIA_URL}}{{ details.logo }}" style="max-height: 140px;">
                             </div>
 
                             <div>
                                 {{ details_form.logo }}
                                 <a href="javascript:;" class="btn btn-danger fileinput-exists"
-                                   data-dismiss="fileinput">移除</a>
+                                data-dismiss="fileinput">移除</a>
                             </div>
                             <div class="help-block">
                                 {% if detailsform.errors.logo %}{{ detailsform.errors.logo.0 }}{% endif %}
@@ -609,144 +607,98 @@
                     <input class="btn btn-lg btn-success" type="submit" value="保存" id="book_edit">
                     <button class="btn btn-lg btn-dark" type="button" id="redict_edit">返回</button>
                 </div>
-                    </form>
-=======
-        <div id="content-container">
-            {% block content-container %}
-                <div id="page-title">
-                    <h1 class="page-header text-overflow">图书编辑</h1>
-                </div>
-				<hr>
-				<div class='raw' style="padding-left:250px;">
-					<div class='col-xs-5'>
-						<form>
-							<div class="input-group ">
-								<span class="input-group-addon" id="sizing-addon2">书名</span>
-								<!--<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">-->
-								{{ book_form.name }}
-							</div>
-							<hr>
-							<div class="input-group ">
-								<span class="input-group-addon" id="sizing-addon2">出版日期</span>
-								<!--<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">-->
-								{{ book_form.publisher_year }}
-							</div>
-							<hr>
-							<div class="input-group">
-								<span class="input-group-addon" id="sizing-addon2">价格</span>
-								<!--<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">-->
-								{{ book_form.price }}
-							</div>
-							<hr>
-							<div class="input-group">
-								<span class="input-group-addon" id="sizing-addon2">库存</span>
-								<!--<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">-->
-								{{ book_form.stocks }}
+            </form>
 
-							</div>
-							<hr>
-							<div class="input-group ">
-                                <span class="input-group-addon" id="sizing-addon2">出版状态</span>
-                                <!--<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">-->
-                                {{ book_form.status }}
-							</div>
-							<hr>
-					  </form>
-					</div>
-				</div>
- 
-            {% endblock content-container %}
->>>>>>> bc80335cb5678b6bd9e486fb8eb1652734b6e9ce
         </div>
 
 
 
     </div>
     <script>
-        $("#redict_edit").click(function () {
-            window.location.href='/managerbook/addbook/'
-        })
+    $("#redict_edit").click(function () {
+        window.location.href='/managerbook/addbook/'
+    })
     </script>
- 
-{% endblock content-container %}
+    
+    {% endblock content-container %}
 
-        <!--===================================================-->
-        <!--END CONTENT CONTAINER-->
+    <!--===================================================-->
+    <!--END CONTENT CONTAINER-->
 
-        <!--MAIN NAVIGATION-->
-        <!--===================================================-->
-        {% block mainnav %}
-        <nav id="mainnav-container">
-            <div id="mainnav">
+    <!--MAIN NAVIGATION-->
+    <!--===================================================-->
+    {% block mainnav %}
+    <nav id="mainnav-container">
+        <div id="mainnav">
 
-                <!--Menu-->
-                <!--================================-->
-                <div id="mainnav-menu-wrap">
-                    <div class="nano">
-                        <div class="nano-content">
+            <!--Menu-->
+            <!--================================-->
+            <div id="mainnav-menu-wrap">
+                <div class="nano">
+                    <div class="nano-content">
 
-                            <!--Profile Widget-->
-                            <!--================================-->
+                        <!--Profile Widget-->
+                        <!--================================-->
 
-                            <ul id="mainnav-menu" class="list-group">
-                                <!--Category name-->
-                                <li class="list-header">图书管理系统</li>
+                        <ul id="mainnav-menu" class="list-group">
+                            <!--Category name-->
+                            <li class="list-header">图书管理系统</li>
 
-                                <!--Menu list item-->
-                                <li >
-                                    <a href='{% url 'index' %}'>
-                                        <i class="demo-psi-home"></i>
-                                        <span class="menu-title">
-													<strong>首页</strong>
-												</span>
-                                    </a>
-                                </li>
-                                <!--Category name-->
+                            <!--Menu list item-->
+                            <li >
+                                <a href='{% url 'index' %}'>
+                                    <i class="demo-psi-home"></i>
+                                    <span class="menu-title">
+                                       <strong>首页</strong>
+                                   </span>
+                               </a>
+                           </li>
+                           <!--Category name-->
 
-                                <!--Menu list item-->
-                                <li>
-                                    <a href="#">
-                                        <i class="demo-psi-split-vertical-2"></i>
-                                        <span class="menu-title">
-												<strong>图书管理</strong>
-											</span>
-                                        <i class="arrow"></i>
-                                    </a>
+                           <!--Menu list item-->
+                           <li>
+                            <a href="#">
+                                <i class="demo-psi-split-vertical-2"></i>
+                                <span class="menu-title">
+                                    <strong>图书管理</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
 
-                                    <!--Submenu-->
-                                    <ul class="collapse">
-                                        <li class="active-link" ><a href='{% url "book" %}'>图书管理</a></li>
-                                        <li><a href="layouts-offcanvas-navigation.html">作者管理</a></li>
-                                        <li><a href="layouts-offcanvas-slide-in-navigation.html">出版社管理</a></li>
-                                    </ul>
-                                </li>
+                            <!--Submenu-->
+                            <ul class="collapse">
+                                <li class="active-link" ><a href='{% url "book" %}'>图书管理</a></li>
+                                <li><a href="layouts-offcanvas-navigation.html">作者管理</a></li>
+                                <li><a href="layouts-offcanvas-slide-in-navigation.html">出版社管理</a></li>
                             </ul>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </nav>
-        {% endblock mainnav %}
+        </div>
     </div>
-    {% block footer %}
-        <footer id="footer">
+</nav>
+{% endblock mainnav %}
+</div>
+{% block footer %}
+<footer id="footer">
 
-            <!-- Visible when footer positions are fixed -->
-            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-            <div class="show-fixed pull-right">
-                You have <a href="#" class="text-bold text-main"><span class="label label-danger">3</span> pending
-                action.</a>
-            </div>
+    <!-- Visible when footer positions are fixed -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="show-fixed pull-right">
+        You have <a href="#" class="text-bold text-main"><span class="label label-danger">3</span> pending
+        action.</a>
+    </div>
 
-            <div class="hide-fixed pull-right pad-rgt">
-                14GB of <strong>512GB</strong> Free.
-            </div>
-            <p class="pad-lft">&#0169; 2016 Your Company</p>
-        </footer>
-    {% endblock footer %}
-    <button class="scroll-top btn">
-        <i class="pci-chevron chevron-up"></i>
-    </button>
+    <div class="hide-fixed pull-right pad-rgt">
+        14GB of <strong>512GB</strong> Free.
+    </div>
+    <p class="pad-lft">&#0169; 2016 Your Company</p>
+</footer>
+{% endblock footer %}
+<button class="scroll-top btn">
+    <i class="pci-chevron chevron-up"></i>
+</button>
 </div>
 </body>
 </html>

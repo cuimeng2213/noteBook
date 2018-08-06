@@ -115,7 +115,7 @@ class CreateDetailsView(View):
 			#保存图片
 			logo = details_data['logo']
 			tmpName = str(details_data['pages']) + '_'+str(details_data['words'])+'_'+str(logo.name)
-			location = 'media/images/logo/'+ tmpName
+			location = 'static/media/images/logo/'+ tmpName
 
 			#open传入的是request的files获取的文件句柄
 			img = Image.open(logo)
