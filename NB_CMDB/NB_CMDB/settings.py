@@ -92,7 +92,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'Asic/Shanghai'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 

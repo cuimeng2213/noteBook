@@ -9,74 +9,111 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>管理登录界面</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="/static/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/static/dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="/static/css/demo/nifty.min.css" rel="stylesheet">
+
+    <!--Demo [ DEMONSTRATION ]-->
+    <link href="/static/css/demo/nifty-demo.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <![endif]-->
+    <style type="text/css">
 
-</head>
+    </style>
+        <!-- jQuery -->
+    <!-- <script src="/static/vendor/jquery/jquery.min.js"></script> -->
 
-<body>
+    <script src="/static/js/jquery-2.2.4.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form role="form">
-                            <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                    </label>
-                                </div>
-                                <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
-                            </fieldset>
-                        </form>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/static/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/static/dist/js/sb-admin-2.js"></script>
+    <script type="text/javascript" src='/static/js/bg-images.js'></script>
+
+    </head>
+
+    <body>
+
+        <div class="container">
+            <!-- 背景图片-->
+            <div id="bg-overlay" class="bg-img" >
+                
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="login-panel panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">请登录</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form role="form" method='get' action='/index/' id='form1'>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input name="remember" type="checkbox" value="Remember Me">记住我
+                                        </label>
+                                    </div>
+                                    <!-- Change this to a button or input when using this as a form -->
+                                    <a id='a2' href="#" class="btn btn-lg btn-success btn-block">登录</a>
+                                </fieldset>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+                    <div class="demo-bg">
+                        <div id="demo-bg-list">
+                            <div class="demo-loading"><i class="psi-repeat-2"></i></div>
+                            <img class="demo-chg-bg   bg-trans active" src="/static/img/bg-img/thumbs/bg-trns.jpg" alt="Background Image">
+                            <img class="demo-chg-bg" src="/static/img/bg-img/thumbs/bg-img-1.jpg" alt="Background Image">
+                            <img class="demo-chg-bg" src="/static/img/bg-img/thumbs/bg-img-2.jpg" alt="Background Image">
+                            <img class="demo-chg-bg" src="/static/img/bg-img/thumbs/bg-img-3.jpg" alt="Background Image">
+                            <img class="demo-chg-bg" src="/static/img/bg-img/thumbs/bg-img-4.jpg" alt="Background Image">
+                            <img class="demo-chg-bg" src="/static/img/bg-img/thumbs/bg-img-5.jpg" alt="Background Image">
+                            <img class="demo-chg-bg" src="/static/img/bg-img/thumbs/bg-img-6.jpg" alt="Background Image">
+                            <img class="demo-chg-bg" src="/static/img/bg-img/thumbs/bg-img-7.jpg" alt="Background Image">
+                        </div>
+                    </div>
         </div>
-    </div>
 
-    <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
+        <!-- 
+        <script type="text/javascript">
+        $(
+            $('#a2').click(function(){
+                console.log('AAAAAAAAAAAAAAAAAA');
+                $('#form1').submit();
+            }),
+            );
+        </script> -->
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    </body>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
-
-</body>
-
-</html>
+    </html>

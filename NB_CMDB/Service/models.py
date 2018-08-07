@@ -127,3 +127,10 @@ class Api(models.Model):
     name = models.CharField(max_length = 32,verbose_name = "接口名称")
     description = RichTextUploadingField(verbose_name = "接口描述") #采用富文本编辑器编写的接口描述字段
     doc = models.CharField(max_length = 64,verbose_name = "接口文档")
+
+    def __str__(self):
+        return self.name
+    #在admin界面展示中文
+    class Meta:
+        verbose_name = '接口'
+        verbose_name_plural = verbose_name #不使用该属性名字后面会多个s
