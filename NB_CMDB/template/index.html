@@ -2,13 +2,78 @@
 
 {% block lable %}
     <div class='container-fluid'>
-        <div>
+        <div class='col-md-11'>
+        	CMDB管理系统-首页
+        </div>
+        <div class='col-md-1'>
+        	<button class='btn btn-default' data-toggle='modal' data-target='#register_user_modal' >用户注册</button>
         </div>
     </div>
 {% endblock lable %}
 
 
 {% block content %}
-    <div class='modal fade' id='register_user_modal' tabindex='-1' role='dialog'>
-    </div>
+    <div class='modal fade' id='register_user_modal' tabindex='-1' role='dialog' aria-labelledby='MyLabel' aria-hidden='true'>
+    	<div class='modal-dialog'>
+    		<div class='modal-content'>
+    			<div class='modal-header'>
+    				<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>
+    					&times;
+    				</button>
+    				<h4 class='modal-title' id='MyLabel'>
+    					用户注册
+    				</h4>
+    			</div>
+    			<form method='post' id='register_Form'>
+    				<div class='modal-body'>
+    					{% for form in forms %}
+    						<div class='form-group input-group'>
+    							<span class='input-group-addon'>{{form.label}}</span>
+    							{{form}}
+    						</div>
+    					{% endfor %}
+    				</div>
+
+    				<div class='modal-footer'>
+    					<button class='btn btn-primary'>注册用户</button>
+    				</div>
+    			</form>	
+    		</div>
+    	</div>
+    </div> 
+
 {% endblock content %}
+
+{% block js%}
+<script type="text/javascript" src='/static/vendor/jquery/jquery.validate.min.js'></script>
+<script type="text/javascript" src='/static/vendor/jquery/messages_zh.min.js'></script>
+<script type="text/javascript">
+	$.validator.setDefaults(
+		{
+			submitHandler:function(){
+				alert('提交');
+			}
+		}
+	);
+	$().ready(
+		function(){
+			//alert('init');
+			$('#register_Form').validate({
+				rules:{
+					id_username:{
+						required:true,
+						minlength:2,
+						maxlength:8,
+					}
+				},
+				messages:{
+					id_username:{
+						required:'请输入用户名',
+					}
+				}
+			})
+		}
+	)
+
+</script>
+{% endblock js%}
