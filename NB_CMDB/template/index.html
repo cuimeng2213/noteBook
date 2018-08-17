@@ -44,36 +44,39 @@
 
 {% endblock content %}
 
-{% block js%}
+{% block js %}
 <script type="text/javascript" src='/static/vendor/jquery/jquery.validate.min.js'></script>
 <script type="text/javascript" src='/static/vendor/jquery/messages_zh.min.js'></script>
 <script type="text/javascript">
-	$.validator.setDefaults(
-		{
-			submitHandler:function(){
-				alert('提交');
+		$.validator.setDefaults( {
+			submitHandler: function () {
+				alert( "submitted!" );
 			}
-		}
-	);
-	$().ready(
-		function(){
-			//alert('init');
-			$('#register_Form').validate({
-				rules:{
-					id_username:{
-						required:true,
-						minlength:2,
-						maxlength:8,
-					}
+		} );
+
+		$( document ).ready( function () {
+			//console.log('AAAAAAAAAAAA: '+ $('#id_username').val('nihao'));
+			$( "#register_Form" ).validate( 
+			{
+				rules: 
+				{
+					id_username: 
+					{
+						'required':true,
+						'maxlength':6,
+						'minlength':2
+					},
 				},
-				messages:{
-					id_username:{
-						required:'请输入用户名',
+				messages: 
+				{
+					id_username: 
+					{
+						'required':'请输入用户名',
 					}
+
 				}
-			})
-		}
-	)
+			} );
+		} );
 
 </script>
-{% endblock js%}
+{% endblock js %}
