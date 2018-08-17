@@ -4,7 +4,7 @@ class CMDBUserForm(forms.Form):
     username = forms.CharField( label='用户账号',widget = forms.TextInput(
     	attrs = {	
     				'class':'form-control',
-    				'malength':6,
+    				'maxlength':6,
     				'minlength':2,
     				'required':'',
     			}))

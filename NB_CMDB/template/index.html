@@ -15,7 +15,7 @@
 {% block content %}
     <div class='modal fade' id='register_user_modal' tabindex='-1' role='dialog' aria-labelledby='MyLabel' aria-hidden='true'>
     	<div class='modal-dialog'>
-    		<div class='modal-content'>
+    		<div class='modal-content' id='register_model'>
     			<div class='modal-header'>
     				<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>
     					&times;
@@ -24,7 +24,7 @@
     					用户注册
     				</h4>
     			</div>
-    			<form method='post' id='register_Form'>
+    			<form method='post' id='register_Form' action=''>{% csrf_token %}
     				<div class='modal-body'>
     					{% for form in forms %}
     						<div class='form-group input-group'>
@@ -45,32 +45,82 @@
 {% endblock content %}
 
 {% block js%}
-<script type="text/javascript" src='/static/vendor/jquery/jquery.validate.min.js'></script>
-<script type="text/javascript" src='/static/vendor/jquery/messages_zh.min.js'></script>
+<script src='/static/vendor/jquery/jquery.validate.min.js'></script>
+<script src='/static/vendor/jquery/messages_zh.min.js'></script>
 <script type="text/javascript">
-	$.validator.setDefaults(
+	/*$.validator.setDefaults(
 		{
 			submitHandler:function(){
 				alert('提交');
 			}
 		}
-	);
-	$().ready(
-		function(){
-			//alert('init');
+	);*/
+    console.log('AAAAAAAAAAAAAAAA'+$('#id_username').val());
+	$().ready( function(){
+			 //alert('init');
 			$('#register_Form').validate({
 				rules:{
 					id_username:{
 						required:true,
 						minlength:2,
-						maxlength:8,
-					}
+						maxlength:6,
+					},
+                    id_password:{
+                        required:true,
+                        maxlength:16,
+                        minlength:8,
+                    }
 				},
 				messages:{
 					id_username:{
 						required:'请输入用户名',
-					}
-				}
+                        maxlength:'最大长度为8',
+                        minlength:'最小长度为2',
+					},
+                    id_password:{
+                        required:'请输入用户密码',
+                        maxlength:'最大长度为16',
+                        minlength:'最小长度为8',  
+                    }
+				},
+                submitHandler:function(submit){
+                    //submit.submit();
+                    var formData = new FormData();
+                    var data = $('#register_Form').serializeArray();
+                    for(var d in data){
+                        console.log('AAAAAAAAAAAAAAAAAAAAA:'+ data[d]['name']);
+                        key = data[d]['name'];
+                        value = data[d]['value']
+                        formData.append(key,value);
+                    };
+
+                    img = $('#id_photo')[0].files[0];
+                    formData.append('photo',img)
+
+                    var csrfToken = data[0]['value'];
+                    $.ajax({
+                        url:'/user/register/',
+                        type:'post',
+                        dataType:'json',
+                        data:formData,
+                        processData:false,
+                        traditional:true,
+                        contentType:false,
+                        success:function(data){
+                            console.log('####################: success');
+                            //隐藏模态框
+                             $('#register_user_modal').modal('hide');
+                        },
+                        beforeSend: function(xhr, settings){
+                            xhr.setRequestHeader('X-CSRFTOKEN',csrfToken);
+                        },
+                        error:function(err){
+                            console.log('####################: error');
+                        }
+
+                    })
+
+                }
 			})
 		}
 	)

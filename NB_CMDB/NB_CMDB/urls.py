@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from NB_CMDB.views import index, cmdbLogin
+from NB_CMDB.views import index, cmdbLogin, echartsDemo, cmdbLogout
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^index', index),
     url(r'^login', cmdbLogin),
+    url(r'^logout', cmdbLogout),
+    url(r'^echartsDemo', echartsDemo),
+    url(r'^user/', include('Users.urls')),
 ]
