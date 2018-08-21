@@ -43,8 +43,6 @@
     </div> 
 
 {% endblock content %}
-
-<<<<<<< HEAD
 {% block js%}
 <script src='/static/vendor/jquery/jquery.validate.min.js'></script>
 <script src='/static/vendor/jquery/messages_zh.min.js'></script>
@@ -125,41 +123,5 @@
 			})
 		}
 	)
-=======
-{% block js %}
-<script type="text/javascript" src='/static/vendor/jquery/jquery.validate.min.js'></script>
-<script type="text/javascript" src='/static/vendor/jquery/messages_zh.min.js'></script>
-<script type="text/javascript">
-		$.validator.setDefaults( {
-			submitHandler: function () {
-				alert( "submitted!" );
-			}
-		} );
-
-		$( document ).ready( function () {
-			//console.log('AAAAAAAAAAAA: '+ $('#id_username').val('nihao'));
-			$( "#register_Form" ).validate( 
-			{
-				rules: 
-				{
-					id_username: 
-					{
-						'required':true,
-						'maxlength':6,
-						'minlength':2
-					},
-				},
-				messages: 
-				{
-					id_username: 
-					{
-						'required':'请输入用户名',
-					}
-
-				}
-			} );
-		} );
->>>>>>> c4710692193dae038b1e25f3ec515b82803f9565
-
 </script>
 {% endblock js %}
