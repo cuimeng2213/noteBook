@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+Vue Demo
+{% endblock %}
+
+{% block content %}
+{% verbatim myblock %}
+	<div  id='vue_demo' >
+		<p>{{name}}</p>
+		<span>循环示例</spane>
+		<ul>
+			<!--注意v-for 里面的循环不需要使用for了 -->
+			<li v-for = "data in message ">
+				<a href="#">{{data.name}}</a>
+			</li>
+		</ul>
+		<p>
+			<button v-on:click = "ClickMe(this)"  class="btn btn-default" value="点我呀">点我呀</button>
+		</p>
+	</div>
+{% endverbatim myblock %}	
+{% endblock %}
+
+{% block js %}
+
+<script type="text/javascript" src='/static/vendor/jquery/vue.js'></script>
+<script type="text/javascript" src='/static/vendor/jquery/vue-resource.js'></script>
+<script type="text/javascript">
+	new Vue({
+		el:"#vue_demo",
+		data:{
+			name:"cuimeng",
+			message:[
+				{"name":"cuimeng","sex":"man","age":23},
+				{"name":"cuimeng","sex":"man","age":23},
+				{"name":"cuimeng","sex":"man","age":23},
+				{"name":"cuimeng","sex":"man","age":23},
+				{"name":"cuimeng","sex":"man","age":23},
+			],
+		},
+		methods:{
+			ClickMe : function (ele){
+				alert("hello");
+			},
+		}
+	})
+</script>
+
+{% endblock %}

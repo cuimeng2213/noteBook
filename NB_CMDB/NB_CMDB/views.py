@@ -11,7 +11,6 @@ def login_valid(func):
 			return func(req)
 		else:
 			return HttpResponseRedirect('/login/')
-
 	return inner
 
 @login_valid
@@ -49,3 +48,24 @@ def cmdbLogout(request):
 
 def echartsDemo(request):
 	return render(request,'echartsDemo.html')
+	
+from django.db import connection
+def getPage(sql, page, num=10):
+	'''
+	通过sql语句获取分页数据
+	'''
+	#计算起始位置
+	page = int(page)
+	num = int(num)
+	start = (page-1)*num
+	sql = sql+" limit %s,%s" % (start, num)
+	#获取游标
+	cursor = connection.cursor()
+	cursor.execute(sql)
+	data = cursor.fetchall()
+	#获取字段名称，合成数据
+	keys = [ key[0] for key in cursor.description ]
+	result = [dict(zip(keys,d)) for d in data]
+	
+	return {"page_data": result}
+
