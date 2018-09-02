@@ -13,7 +13,7 @@
 
 {% block content-container %}
 <div id="page-title">
-    <h1 class="page-header text-overflow">首页</h1>
+    <h1 class="page-header text-overflow">图书管理</h1>
 </div>
 
 <div id="page-content">
@@ -484,8 +484,8 @@ function Values(Id){
 
                             <!--Submenu-->
                             <ul class="collapse">
-                                <li  class="active-link" ><a href='{% url "book" %}'>图书管理</a></li>
-                                <li><a href="#">作者管理</a></li>
+                                <li  class="active-link" ><a href="{% url 'book' %}">图书管理</a></li>
+                                <li><a href="{% url 'author_manage' %}">作者管理</a></li>
                                 <li><a href="#">出版社管理</a></li>
                             </ul>
                         </li>

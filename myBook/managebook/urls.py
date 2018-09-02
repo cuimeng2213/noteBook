@@ -7,5 +7,6 @@ urlpatterns = [
     url(r'addbook$', BookManage.as_view(), name='book'),
     url(r'create_details$', CreateDetailsView.as_view(), name='create_details'),
     url(r'del_book$', DelBook.as_view(),name='del_book'),
-    url(r'edit_book/(\d+)/$',EditBookView.as_view(), name='edit_book'),
+    url(r'edit_book/(\d+)/$',EditBookView.as_view(), name='edit_book'),	
+	url(r'author/$',AuthorView.as_view(), name="author_manage"),
 ]

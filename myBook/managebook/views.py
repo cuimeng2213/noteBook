@@ -281,3 +281,11 @@ class BookManage(ListView):
 			print('###############: error: ', e)
 
 		return JsonResponse(ret)
+		
+class AuthorView(View):
+	def get(self, request):
+		allAuthor = Author.objects.all()
+		return render(request,"author.html", locals())
+	def post(self, request):
+		return render(request,"author.html")
+	

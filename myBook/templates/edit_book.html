@@ -579,11 +579,12 @@
                                     <div class="fileinput-new thumbnail"
                                     style="width: 200px;height: auto;max-height:150px;">
                                     {% if details.logo %}
-<<<<<<< HEAD
-                                    <img src='/{{ details.logo }}' style="max-height: 140px;">
-=======
-                                    <img src='{{MEDIA_URL}}{{ details.logo }}' style="max-height: 140px;">
->>>>>>> ed68f67c2d736832fef6c50c219ad22bf411c92e
+									{% comment %}
+										<p>注释内容</p>
+										<img src='/{{ details.logo }}' style="max-height: 140px;">
+									{% endcomment %}
+                                     <img src='/{{ details.logo }}' style="max-height: 140px;"> 
+
                                     {% else %}
                                     <img src="/static/fileinput/images/noimage.png" style="max-height: 140px;">
                                     {% endif %}
@@ -591,7 +592,7 @@
 
                                 <div class="fileinput-preview fileinput-exists thumbnail"
                                 style="max-width: 200px; max-height: 150px;">
-                                <img src="{{MEDIA_URL}}{{ details.logo }}" style="max-height: 140px;">
+                                <img src="/{{ details.logo }}" style="max-height: 140px;">
                             </div>
 
                             <div>
@@ -612,25 +613,14 @@
                     <button class="btn btn-lg btn-dark" type="button" id="redict_edit">返回</button>
                 </div>
             </form>
-<<<<<<< HEAD
-
-=======
->>>>>>> ed68f67c2d736832fef6c50c219ad22bf411c92e
         </div>
-
-
-
     </div>
     <script>
     $("#redict_edit").click(function () {
-        window.location.href='/managerbook/addbook/'
+        window.location.href='/managerbook/addbook/';
     })
     </script>
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> ed68f67c2d736832fef6c50c219ad22bf411c92e
     {% endblock content-container %}
 
     <!--===================================================-->

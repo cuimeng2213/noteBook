@@ -59,7 +59,7 @@
             <!--================================-->
             <div class="navbar-header">
                 <a href="index.html" class="navbar-brand">
-                    <img src="img/logo.png" alt="Nifty Logo" class="brand-icon">
+                    <img src="/static/img/logo.png" alt="Nifty Logo" class="brand-icon">
                     <div class="brand-title">
                         <span class="brand-text">图书馆里系统</span>
                     </div>
@@ -191,7 +191,7 @@
                                             <a class="media" href="#">
                                                 <div class="media-left">
                                                     <img class="img-circle img-sm" alt="Profile Picture"
-                                                         src="img/profile-photos/9.png">
+                                                         src="/static/imgprofile-photos/9.png">
                                                 </div>
                                                 <div class="media-body">
                                                     <div class="text-nowrap">Lucy sent you a message</div>
@@ -205,7 +205,7 @@
                                             <a class="media" href="#">
                                                 <div class="media-left">
                                                     <img class="img-circle img-sm" alt="Profile Picture"
-                                                         src="img/profile-photos/3.png">
+                                                         src="/static/imgprofile-photos/3.png">
                                                 </div>
                                                 <div class="media-body">
                                                     <div class="text-nowrap">Jackson sent you a message</div>
@@ -314,22 +314,22 @@
                                     <ul class="list-unstyled list-inline text-justify">
 
                                         <li class="pad-btm">
-                                            <img src="img//thumbs/mega-menu-2.jpg" alt="thumbs">
+                                            <img src="/static/img/thumbs/mega-menu-2.jpg" alt="thumbs">
                                         </li>
                                         <li class="pad-btm">
-                                            <img src="img//thumbs/mega-menu-3.jpg" alt="thumbs">
+                                            <img src="/static/img/thumbs/mega-menu-3.jpg" alt="thumbs">
                                         </li>
                                         <li class="pad-btm">
-                                            <img src="img//thumbs/mega-menu-1.jpg" alt="thumbs">
+                                            <img src="/static/img/thumbs/mega-menu-1.jpg" alt="thumbs">
                                         </li>
                                         <li class="pad-btm">
-                                            <img src="img//thumbs/mega-menu-4.jpg" alt="thumbs">
+                                            <img src="/static/img/thumbs/mega-menu-4.jpg" alt="thumbs">
                                         </li>
                                         <li class="pad-btm">
-                                            <img src="img//thumbs/mega-menu-5.jpg" alt="thumbs">
+                                            <img src="/static/img/thumbs/mega-menu-5.jpg" alt="thumbs">
                                         </li>
                                         <li class="pad-btm">
-                                            <img src="img//thumbs/mega-menu-6.jpg" alt="thumbs">
+                                            <img src="/static/img/thumbs/mega-menu-6.jpg" alt="thumbs">
                                         </li>
                                     </ul>
                                     <a href="#" class="btn btn-sm btn-block btn-default">Browse Gallery</a>
@@ -563,7 +563,7 @@
                                     <!--Submenu-->
                                     <ul class="collapse">
                                         <li><a href='{% url "book" %}'>图书管理</a></li>
-                                        <li><a href="layouts-offcanvas-navigation.html">作者管理</a></li>
+                                        <li><a href="{% url 'author_manage'%}">作者管理</a></li>
                                         <li><a href="layouts-offcanvas-slide-in-navigation.html">出版社管理</a></li>
                                     </ul>
                                 </li>
