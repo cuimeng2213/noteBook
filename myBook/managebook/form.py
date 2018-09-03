@@ -86,3 +86,29 @@ class DetailForm(forms.Form):
 			attrs={'id':'file_logo',"class": 'fileinput-new btn btn-primary btn-file'}
 			)
 		)
+		
+class AuthorForm(forms.Form):
+	name = forms.CharField(
+		widget = widgets.TextInput( 
+				attrs = {"class":"form-control", "id":"author_name","placeholder":"作者名字"}
+			)
+	)
+	address = forms.CharField(
+		widget = widgets.TextInput( 
+				attrs = {"class":"form-control", "id":"author_address","placeholder":"地址"}
+			)
+	)
+	phone = forms.CharField(
+		widget = widgets.TextInput( 
+				attrs = {"class":"form-control", "id":"author_phone","placeholder":"电话"}
+			)
+	)
+	email = forms.EmailField(
+		widget = widgets.EmailInput( 
+				attrs = {"class":"form-control", "id":"author_email","placeholder":"Email"}
+			)
+	)
+	userinfo = forms.CharField(
+		widget = widgets.Textarea( attrs={'class':'form-control','id':'author_userinfo','placeholder':'作者简介'})
+	)
+	

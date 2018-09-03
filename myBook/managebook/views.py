@@ -4,14 +4,15 @@ from django.core.paginator import Paginator
 from django.http import JsonResponse
 from django.db.models import Q
 from .models import *
-from .form import BookForm, DetailForm
+from .form import BookForm, DetailForm, AuthorForm
 import time
 from myBook import settings
 from PIL import Image
 from django.forms import model_to_dict
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
+@login_required
 def index(request):
 	return render(request, 'base.html')
 
@@ -29,14 +30,19 @@ class EditBookView(View):
 		try:
 			details = Details.objects.get(id=int(book_dict['info']))
 			details_dict = model_to_dict(details)
+			#print("details_dict:  ", details_dict)
 			details_form = DetailForm(initial=details_dict)
 		except:
 			details_form = DetailForm()
 			details = None
 			pass
 		book_dict['author'] = author_id
+		if book_dict['status'] == True:
+			book_dict['status'] = 1
+		print(">>> book_dict: ", book_dict)
 		book_form = BookForm(initial=book_dict)
-
+		#print(">>> book_dict:  ", book_form)
+		
 		return render(request,'edit_book.html',{
 			'book_form':book_form,
 			'details_form':details_form,
@@ -283,9 +289,38 @@ class BookManage(ListView):
 		return JsonResponse(ret)
 		
 class AuthorView(View):
+	"""作者管理视图"""
 	def get(self, request):
 		allAuthor = Author.objects.all()
+		authorForm = AuthorForm()
+		#print(" aaaa :", authorForm.email)
 		return render(request,"author.html", locals())
+		
 	def post(self, request):
+		ret = {"status":"failed","data":""}
+		if request.method == "POST" and request.POST:
+			f = AuthorForm(request.POST)
+			print("form is :",f.is_valid())
+			if f.is_valid():
+				newData = f.cleaned_data
+				newAuthor = Author()
+				newAuthor.name = newData.get("name")
+				newAuthor.address = newData.get("address")
+				newAuthor.phone = newData.get("phone")
+				newAuthor.email = newData.get("email")
+				newAuthor.authorinfo = newData.get("userinfo")
+				newAuthor.save()
+				
+				print(newData)
+				ret["status"] = "success"
+				
+			return JsonResponse(ret)
 		return render(request,"author.html")
-	
+		
+class PublisherView(View):
+	"""出版社管理视图"""
+	def get(self, request):
+		allPublisher = Publisher.objects.all()
+		return render(request,"publisher.html", locals())
+	def post(self, request):
+		return render(request,"publisher.html")

@@ -61,7 +61,7 @@
                 <a href="index.html" class="navbar-brand">
                     <img src="/static/img/logo.png" alt="Nifty Logo" class="brand-icon">
                     <div class="brand-title">
-                        <span class="brand-text">图书馆里系统</span>
+                        <span class="brand-text">图书管理系统</span>
                     </div>
                 </a>
             </div>
@@ -341,6 +341,7 @@
                     <!--End mega dropdown-->
 
                 </ul>
+				{#右上角选项按钮#}
                 <ul class="nav navbar-top-links pull-right">
                     <li>
                         <a href="#" class="aside-toggle navbar-aside-icon">
@@ -555,7 +556,7 @@
                                     <a href="#">
                                         <i class="demo-psi-split-vertical-2"></i>
                                         <span class="menu-title">
-												<strong>图书管理</strong>
+												<strong>管理</strong>
 											</span>
                                         <i class="arrow"></i>
                                     </a>
@@ -564,7 +565,7 @@
                                     <ul class="collapse">
                                         <li><a href='{% url "book" %}'>图书管理</a></li>
                                         <li><a href="{% url 'author_manage'%}">作者管理</a></li>
-                                        <li><a href="layouts-offcanvas-slide-in-navigation.html">出版社管理</a></li>
+                                        <li><a href="{% url 'publisher_manage' %}">出版社管理</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -575,6 +576,25 @@
         </nav>
         {% endblock mainnav %}
     </div>
+	<!-- asize右上角的隐藏操作列表-->
+	<aside id="aside-container">
+		<div id="aside">
+			        <div class="nano">
+                        <div class="nano-content">
+						  <div class="tab-content">
+							 <div class="tab-pane fade in active" id="demo-asd-tab-1">
+								<div class="pad-all text-center">
+                                    <a href="{% url 'logout' %}" class="btn btn-primary">
+                                        <i class="demo-pli-unlock"></i> Logout
+                                    </a>
+                                </div>
+							 </div>
+						  </div>
+						</div>
+					</div>
+		</div>
+	</aside>
+	<!-- end aside -->
     {% block footer %}
         <footer id="footer">
 
