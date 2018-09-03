@@ -37,8 +37,7 @@ class EditBookView(View):
 			details = None
 			pass
 		book_dict['author'] = author_id
-		if book_dict['status'] == True:
-			book_dict['status'] = 1
+
 		print(">>> book_dict: ", book_dict)
 		book_form = BookForm(initial=book_dict)
 		#print(">>> book_dict:  ", book_form)

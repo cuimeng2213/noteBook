@@ -478,7 +478,7 @@
                             <label class="col-md-3 control-label"
                             for="demo-text-input">出版日期</label>
                             <div class="col-md-5">
-                                {{ book_form.publish_year }}
+                                {{ book_form.publisher_year }}
                             </div>
                         </div>
 
@@ -612,7 +612,6 @@
                     <input class="btn btn-lg btn-success" type="submit" value="保存" id="book_edit">
                     <button class="btn btn-lg btn-dark" type="button" id="redict_edit">返回</button>
                 </div>
-				{{book_form.as_p}}
             </form>
         </div>
     </div>
@@ -670,8 +669,8 @@
                             <!--Submenu-->
                             <ul class="collapse">
                                 <li class="active-link" ><a href='{% url "book" %}'>图书管理</a></li>
-                                <li><a href="layouts-offcanvas-navigation.html">作者管理</a></li>
-                                <li><a href="layouts-offcanvas-slide-in-navigation.html">出版社管理</a></li>
+                                <li><a href="{%url 'author_manage' %}">作者管理</a></li>
+                                <li><a href="{% url 'publisher_manage' %}">出版社管理</a></li>
                             </ul>
                         </li>
                     </ul>

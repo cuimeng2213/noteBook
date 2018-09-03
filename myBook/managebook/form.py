@@ -37,18 +37,20 @@ class BookForm(forms.Form):
 		)
 	status = forms.ChoiceField(
 		choices = [(0,'未出版'),(1,'已出版')],
-		widget=widgets.Select(attrs={'class':'selectpicker',
-			'type':'select','id':'status'}),
+		widget=widgets.Select(
+			attrs={'type':'select','id':'status'}),
 		)
 
 	type = forms.ChoiceField(
 		choices = TypeBook.objects.all().values_list('id','type_book'),
-		widget = widgets.Select(attrs={'class':'selectpicker','placeholder':'类型','id':'type'})
+		widget = widgets.Select(
+					attrs={ "class":"form-control","data-live-search": "true", "data-width": "100%", "id": "type"}
+				)
 		)
 	publisher = forms.ChoiceField(
 		choices = Publisher.objects.all().values_list('id','name'),
 		widget = widgets.Select(
-			attrs = {"class": "selectpicker", "data-live-search": "true", "data-width": "100%", "id": "publisher",}
+				attrs = { "class":"form-control","data-live-search": "true", "data-width": "100%", "id": "publisher"}
 			)
 		)
 	author = forms.MultipleChoiceField(
