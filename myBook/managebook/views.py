@@ -12,9 +12,9 @@ from django.forms import model_to_dict
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-@login_required
-def index(request):
-	return render(request, 'base.html')
+#@login_required
+#def index(request):
+#	return render(request, 'base.html')
 
 class EditBookView(View):
 	def get(self, request, index):
@@ -48,9 +48,27 @@ class EditBookView(View):
 			'book_id':int(index),
 			'details':details,
 			})
-	def post(self, request):
+			
+	def post(self, request,index):
+		"""
+        提交更改数据
+        几种更新：
+            1.带图片更新已有的书籍详情信息　（替换已有的图片）
+            2.不带图片更新已有的书籍详情信息 （新上传一个图片）
+                (1) 更新已有的书籍详情信息(try捕捉错误处理图片)
+            3.没有创建图书详情信息  (创建一个图书详情信息，上传图片)
+            4.没有创建图书详情信息且不上传图片的 (创建一个图书详情信息，不上传图片)
+                (2) 创建图书详情信息(try捕捉错误处理图片)
+        更新流程：
+            1.获取用户提交POST值并且传入我们的表单
+            2.双表单的验证 book_form.is_valid()=True and details_form.is_valid()=True
+            3.更新(4种情况)
+        :param request:
+        :return:
+		"""
 		details_form = DetailForm(request.POST,request.FILES)
 		book_form=BookForm(request.POST)
+		print(">>> eidt: ", details_form.is_valid() , book_form.is_valid())
 		if details_form.is_valid() and book_form.is_valid():
 			book_data = book_form.cleaned_data
 			details_data = details_form.cleaned_data
@@ -84,14 +102,69 @@ class EditBookView(View):
 					with open(location,'wb') as f:
 						for chunk in request.FILES['logo'].chunks:
 							f.write(chunk)
+					details.update(
+						chapter = details_data["chapter"],
+						contentinfo = details_data["contentinfo"],
+						catalog=details_data["catalog"],
+						words = details_data["words"],
+						pages=details_data["pages"],
+						logo=location
+					)
 
 				except Exception as e:
 					#此处是没有图片更新
-					pass
+					details.update(
+						chapter = details_data["chapter"],
+						contentinfo = details_data["contentinfo"],
+						catalog=details_data["catalog"],
+						words = details_data["words"],
+						pages=details_data["pages"]
+					)
+				return render(request,"edit_book.html",{
+				"book_form":book_form,
+				"details_form":details_form,
+				"details":details[0],
+				"book_id":int(index)
+				})
 			else:
-				pass
+				details = Details()
+				
+				book_obj = Book.objects.get(id=int(index))
+				try:
+					logo = request.FILES['logo']
+					tmpName = str(details_data['pages']) + '_'+str(details_data['words'])+'_'+str(logo.name)
+					location = settings.STATICFILES_DIRS[0]+'/media/images/logo/'+tmpName
+					with open(location,'wb') as f:
+						for chunk in request.FILES['logo'].chunks:
+							f.write(chunk)
+					details.chapter = details_data['chapter']
+					details.contentinfo = details_data['contentinfo']
+					details.catalog = details_data['catalog']
+					details.words = details_data['words']
+					details.pages = details_data['pages']
+					details.logo = location
+					details.save()
+					
+					book_obj.info = detals
+					book_obj.save()
+				except:
+					details.chapter = details_data['chapter']
+					details.contentinfo = details_data['contentinfo']
+					details.catalog = details_data['catalog']
+					details.words = details_data['words']
+					details.pages = details_data['pages']
+					#details.logo = location
+					details.save()
+					
+					book_obj.info = detals
+					book_obj.save()
 
-			return render(request, 'edit_book.html')
+				return render(request, 'edit_book.html',{
+					"book_form":book_form,
+					"details_form":details_form,
+					"details":details,
+					"book_id":int(index)
+				})
 
 class DelBook(View):
 	def post(self, request):

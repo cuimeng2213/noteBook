@@ -149,13 +149,13 @@
                         <tbody>
                             {% for book in book_obj %}
                             <tr>
-                                <td><a href="{% url 'detail' %}?bookId={{ book.info.id }}"
+                                <td class="text-left" ><a href="{% url 'detail' %}?bookId={{ book.info.id }}"
                                    class="btn-link">{{ book.name }}</a></td>
-                                   <td>{% for book_author in book.author.all %} {{ book_author.name }}
+                                   <td class="text-left" >{% for book_author in book.author.all %} {{ book_author.name }}
                                     ,{% endfor %}</td>
-                                    <td><span class="text-muted"><i
+                                    <td class="text-left"><span class="text-muted"><i
                                         class="fa fa-clock-o"></i>{{ book.publish_year }}</span></td>
-                                        <td>{{ book.type }}</td>
+                                        <td class="text-left">{{ book.type }}</td>
                                         {% if book.status == True %}
                                         <td class="text-center">
                                             <div class="label label-table label-success">已出版</div>
@@ -183,11 +183,11 @@
                                     <button class="btn btn-danger btn-rounded" data-toggle="modal"
                                     data-target="#bookdel" type="button"
                                     onclick="Values({{ book.id }})">删除
-                                </button>
+									</button>
 
-                                <a class="btn btn-warning btn-rounded"
-                                href="{% url 'edit_book' book.id %}">编辑</a>
-                            </td>
+									<a class="btn btn-warning btn-rounded"
+									href="{% url 'edit_book' book.id %}">编辑</a>
+									</td>
                         </tr>
                         <!-- 删除按钮的模态框-->
                         <div class="modal fade" id="bookdel" tabindex="-1" role="dialog"
